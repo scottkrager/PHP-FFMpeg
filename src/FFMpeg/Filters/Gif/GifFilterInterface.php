@@ -12,6 +12,7 @@
 namespace FFMpeg\Filters\Gif;
 
 use FFMpeg\Filters\FilterInterface;
+use FFMpeg\Format\VideoInterface;
 use FFMpeg\Media\Gif;
 
 interface GifFilterInterface extends FilterInterface
