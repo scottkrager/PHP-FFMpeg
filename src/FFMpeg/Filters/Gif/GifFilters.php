@@ -12,6 +12,9 @@
 namespace FFMpeg\Filters\Gif;
 
 use FFMpeg\Media\Gif;
+use FFMpeg\Filters\Audio\AudioFilters;
+use FFMpeg\Filters\Video;
+use FFMpeg\Filters\Video\VideoFilters;
 
 class GifFilters
 {
@@ -20,5 +23,18 @@ class GifFilters
     public function __construct(Gif $gif)
     {
         $this->gif = $gif;
+    }
+    /**
+     * Applies a custom filter: -vf foo bar
+     *
+     * @param string    $parameters
+     *
+     * @return GifFilters
+     */
+    public function custom($parameters)
+    {
+        $this->gif->addFilter(new CustomFilter($parameters));
+
+        return $this;
     }
 }
